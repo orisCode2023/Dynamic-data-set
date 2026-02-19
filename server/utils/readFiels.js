@@ -10,8 +10,8 @@ const CSV_PATH = path.join(dirname, '..', 'db', 'terrorData.csv');
 
 async function readCsv() {
     const csvString = await fs.readFile(CSV_PATH, 'utf-8');
-    const rows = await csv.parse(csvString);
-    return rows
+    const rows = await csv.parse(csvString, {columns: true});
+    return rows.slice(1, 51)
 }
 
 
